@@ -30,6 +30,8 @@ def validate(text):
         raise ValueError("entry must be a single line")
     if len(text) > MAX_CHARS:
         raise ValueError("entry is %d chars, over the 100-char limit" % len(text))
+    if text != text.strip():
+        raise ValueError("entry must not start or end with whitespace")
     text.encode("utf-8")
     return text
 
